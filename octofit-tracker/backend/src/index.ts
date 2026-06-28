@@ -1,10 +1,10 @@
 import express from 'express';
-import mongoose from 'mongoose';
 import { User } from './models/user';
 import { Team } from './models/team';
 import { Activity } from './models/activity';
 import { LeaderboardEntry } from './models/leaderboard';
 import { Workout } from './models/workout';
+import { connectDatabase } from './scripts/database';
 
 type ResourceItem = {
   id: string;
@@ -14,7 +14,6 @@ type ResourceItem = {
 
 const app = express();
 const PORT = process.env.PORT || 8000;
-const mongoUri = process.env.MONGODB_URI || 'mongodb://127.0.0.1:27017/octofit_db';
 
 app.use(express.json());
 
@@ -204,7 +203,7 @@ app.post('/api/workouts', async (req, res) => {
 
 const start = async () => {
   try {
-    await mongoose.connect(mongoUri);
+    await connectDatabase();
     console.log('Connected to MongoDB');
   } catch (error) {
     console.warn('MongoDB connection unavailable, continuing without it:', error);
