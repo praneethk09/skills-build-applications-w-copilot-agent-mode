@@ -4,7 +4,7 @@ import { Team } from './models/team';
 import { Activity } from './models/activity';
 import { LeaderboardEntry } from './models/leaderboard';
 import { Workout } from './models/workout';
-import { connectDatabase } from './scripts/database';
+import { connectDatabase } from './config/database';
 
 type ResourceItem = {
   id: string;

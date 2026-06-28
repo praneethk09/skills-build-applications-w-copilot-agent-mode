@@ -9,7 +9,7 @@ const team_1 = require("./models/team");
 const activity_1 = require("./models/activity");
 const leaderboard_1 = require("./models/leaderboard");
 const workout_1 = require("./models/workout");
-const database_1 = require("./scripts/database");
+const database_1 = require("./config/database");
 const app = (0, express_1.default)();
 const PORT = process.env.PORT || 8000;
 app.use(express_1.default.json());
